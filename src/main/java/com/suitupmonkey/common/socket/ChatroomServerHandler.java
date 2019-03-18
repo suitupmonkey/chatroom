@@ -1,4 +1,4 @@
-package com.suitupmonkey.socket;
+package com.suitupmonkey.common.socket;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -45,7 +45,7 @@ public class ChatroomServerHandler extends SimpleChannelInboundHandler {
 
         //2.获取地址,WebSocketServerHandshakerFactory 用于自动检测websocket协议版本，通过webSocketURL来指定连接地址。
         WebSocketServerHandshakerFactory handshakerFactory = new WebSocketServerHandshakerFactory(
-                "ws://localhost:8081/websocket",null,false
+                "ws://localhost:/websocket",null,false
         );
 
         handshaker = handshakerFactory.newHandshaker(request);//获取WebSocketServerHandShaker

@@ -1,4 +1,4 @@
-package com.suitupmonkey.controller;
+package com.suitupmonkey.common.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +8,6 @@ public class ChatroomController {
 
     @GetMapping
     public String chatroom(){
-        return "chatroom";
+        return "demo/index";
     }
 }

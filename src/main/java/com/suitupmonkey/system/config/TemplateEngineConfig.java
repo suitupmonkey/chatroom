@@ -1,4 +1,4 @@
-package com.suitupmonkey.config;
+package com.suitupmonkey.system.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.TemplateEngine;
