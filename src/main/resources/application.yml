@@ -1,6 +1,27 @@
-#表示所有的访问都经过静态资源路径
-spring.mvc.static-path-pattern: /**
+#print sql
+logging:
+  level:
+    suitupmonkey:
+      system:
+        dao: debug
+
 spring:
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,
-                      classpath:/static/,classpath:/templates/,classpath:/public/
+  #devtools:
+    #restart:
+      #log-condition-evaluation-delta: false
+  profiles:
+    avtive: dev
+
+  #database config
+  datasource:
+    username: root
+    password: 123123
+    url: jdbc:mysql://localhost:3306/chatroom?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC
+    driver: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: mybatis/**/*Mapper.xml #mapper location
+  typeAliasesPackage: com.suitupmonkey.**.bean #bean alias package
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #print sql
+
