@@ -48,8 +48,9 @@ public class DBConfig {
 
             List<Filter> proxyFilters = dataSource.getProxyFilters();
             for (Filter filter : proxyFilters) {
-                assert filter instanceof WallFilter;//if it is a wall filter
-                ((WallFilter) filter).setConfig(wallConfig);//覆盖默认的wallconfig
+                if(filter instanceof WallFilter){
+                    ((WallFilter) filter).setConfig(wallConfig);//覆盖默认的wallconfig
+                }
             }
         }catch (Exception e){
             e.printStackTrace();
