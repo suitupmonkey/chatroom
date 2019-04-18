@@ -1,4 +1,4 @@
-package com.suitupmonkey.system.config;
+package com.suitupmonkey.common.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
