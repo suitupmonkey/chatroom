@@ -2,7 +2,7 @@ package com.suitupmonkey.system.shiro;
 
 import com.suitupmonkey.common.utils.ClassUtil;
 import com.suitupmonkey.system.bean.User;
-import com.suitupmonkey.system.config.ApplicationContextUtil;
+import com.suitupmonkey.common.utils.ApplicationContextUtil;
 import com.suitupmonkey.system.service.LoginService;
 import com.suitupmonkey.system.service.impl.LoginServiceImpl;
 import org.apache.shiro.SecurityUtils;
