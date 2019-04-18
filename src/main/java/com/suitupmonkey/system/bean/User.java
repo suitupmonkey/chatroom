@@ -4,9 +4,30 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
+    //主键
+    private String id;
+    //用户名
     private String username;
-
+    //密码
     private String password;
+    //头像地址
+    private String head;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getHead() {
+        return head;
+    }
+
+    public void setHead(String head) {
+        this.head = head;
+    }
 
     public String getUsername() {
         return username;
@@ -27,8 +48,10 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", head='" + head + '\'' +
                 '}';
     }
 }

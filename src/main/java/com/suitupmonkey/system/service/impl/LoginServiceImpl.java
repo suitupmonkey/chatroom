@@ -17,4 +17,9 @@ public class LoginServiceImpl implements LoginService {
     public int userExist(User user) {
         return loginMapper.userExist(user);
     }
+
+    @Override
+    public User findUser(String username) {
+        return loginMapper.findUser(username);
+    }
 }
