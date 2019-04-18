@@ -8,4 +8,6 @@ public interface LoginMapper {
 
 
     int userExist(User user);//if user exist
+
+    User findUser(String username);//find user with it's name
 }
