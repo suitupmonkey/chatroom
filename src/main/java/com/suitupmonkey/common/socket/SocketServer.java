@@ -31,7 +31,7 @@ public class SocketServer {
                             channel.pipeline().addLast("http-codec",new HttpServerCodec());
                             channel.pipeline().addLast("aggregator",new HttpObjectAggregator(65536));
                             channel.pipeline().addLast("http-chunked",new ChunkedWriteHandler());
-                            channel.pipeline().addLast(new ChatroomServerHandler());
+                            channel.pipeline().addLast(new InboundHandler());
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)          // (5)
