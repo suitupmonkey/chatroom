@@ -1,5 +1,9 @@
 package com.suitupmonkey.common.socket;
 
+import com.alibaba.fastjson.JSONObject;
+import com.suitupmonkey.common.bean.Msg;
+import com.suitupmonkey.system.config.GlobalVarisbles;
+import com.suitupmonkey.system.service.UserService;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -11,9 +15,15 @@ import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Date;
 
 public class ChatroomServerHandler extends SimpleChannelInboundHandler {
 
+
+    @Autowired
+    UserService userService;
 
     private static final Logger logger = LoggerFactory.getLogger(ChatroomServerHandler.class);
 
@@ -108,7 +118,13 @@ public class ChatroomServerHandler extends SimpleChannelInboundHandler {
 
         //客户端发来的消息/Returns the text data in this frame
         String msg = ((TextWebSocketFrame) webSocketFrame).text();
-        ctx.write(new TextWebSocketFrame(msg));//处理
+
+        Msg message = new Msg();
+        message.setContent(msg);
+        message.setSender(GlobalVarisbles.username());
+        message.setDeliveryDate(new Date());
+        String msgbody = JSONObject.toJSONString(message);
+        ctx.write(new TextWebSocketFrame(msgbody));//处理
         ctx.flush();
     }
 

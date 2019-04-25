@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.suitupmonkey.system.dao.LoginMapper">
+<mapper namespace="com.suitupmonkey.system.dao.UserMapper">
 
     <!-- if user exist-->
     <select id="userExist" parameterType="com.suitupmonkey.system.bean.User" resultType="int">

@@ -3,8 +3,8 @@ package com.suitupmonkey.system.shiro;
 import com.suitupmonkey.common.utils.ClassUtil;
 import com.suitupmonkey.system.bean.User;
 import com.suitupmonkey.common.utils.ApplicationContextUtil;
-import com.suitupmonkey.system.service.LoginService;
-import com.suitupmonkey.system.service.impl.LoginServiceImpl;
+import com.suitupmonkey.system.service.UserService;
+import com.suitupmonkey.system.service.impl.UserServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -39,7 +39,7 @@ public class UserRealm extends AuthorizingRealm {
         //String password = (String) token.getCredentials();
         String password = new String((char[]) token.getCredentials());
 
-        LoginService loginService = (LoginServiceImpl)ApplicationContextUtil.getBean("loginServiceImpl", LoginServiceImpl.class);
+        UserService loginService = (UserServiceImpl)ApplicationContextUtil.getBean("userServiceImpl", UserServiceImpl.class);
 
         User user = loginService.findUser(username);
 

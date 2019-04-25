@@ -11,7 +11,7 @@ public class GlobalVarisbles implements Serializable {
 
     //获取当前用户
     public static User currentUser(){
-        User subject = (User) SecurityUtils.getSubject();
+        User subject = (User) SecurityUtils.getSubject().getPrincipal();
         String username = subject.getUsername();
         return subject;
     }

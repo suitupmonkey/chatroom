@@ -1,8 +1,7 @@
 package com.suitupmonkey.system.controller;
 
 import com.suitupmonkey.system.bean.User;
-import com.suitupmonkey.system.config.GlobalVarisbles;
-import com.suitupmonkey.system.service.LoginService;
+import com.suitupmonkey.system.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -16,11 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-public class LoginController {
+public class UserController {
 
 
     @Autowired
-    LoginService loginService;
+    UserService loginService;
 
 
     @GetMapping({"/",""})

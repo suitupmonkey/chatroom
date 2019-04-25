@@ -1,5 +1,9 @@
 package com.suitupmonkey.common.socket;
 
+import com.alibaba.fastjson.JSONObject;
+import com.suitupmonkey.common.bean.Msg;
+import com.suitupmonkey.common.utils.DateUtils;
+import com.suitupmonkey.system.config.GlobalVarisbles;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -14,6 +18,8 @@ import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
 
 public class InboundHandler extends ChannelInboundHandlerAdapter {
 
@@ -109,7 +115,17 @@ public class InboundHandler extends ChannelInboundHandlerAdapter {
 
         //客户端发来的消息/Returns the text data in this frame
         String msg = ((TextWebSocketFrame) webSocketFrame).text();
-        ctx.write(new TextWebSocketFrame(msg));//处理
+
+        Msg message = new Msg();
+        message.setContent(msg);
+        // message.setSender(GlobalVarisbles.username());
+        message.setDeliveryDate(new Date());
+        String sendDate = message.getSendDate();
+        String msgbody = JSONObject.toJSONString(message);
+        ctx.write(new TextWebSocketFrame(msgbody));//处理
+
+
+        //ctx.write(new TextWebSocketFrame(msg));//处理
         ctx.flush();
     }
 

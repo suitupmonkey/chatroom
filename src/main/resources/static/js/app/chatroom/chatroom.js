@@ -4,6 +4,7 @@ var socket,
     chatWindow = document.querySelector('.chat-window'),
     chatWindowMessage = document.querySelector('.chat-window-message'),
     chatThread = document.querySelector('.chat-thread');
+    timeThread = document.querySelector('.chat-thread name');
 
 if (!window.WebSocket) {
     window.WebSocket = window.MozWebSocket;
@@ -12,12 +13,20 @@ if (!window.WebSocket) {
 if (window.WebSocket) {
     socket = new WebSocket("ws://localhost:8082/websocket");
     socket.onmessage = function (event) {
+        var data = JSON.parse(event.data)
 
         var chatNewThread = document.createElement('li'),
-            chatNewMessage = document.createTextNode(event.data);
+            chatNewMessage = document.createTextNode(data.content);
+
+        var span = document.createElement('span');
+            deliveryDate = document.createTextNode(data.sendDate);
+            span.className = 'name';
 
         // Add message to chat thread and scroll to bottom
         chatNewThread.appendChild(chatNewMessage);
+
+        span.appendChild(deliveryDate)
+        chatNewThread.appendChild(span);
         chatThread.appendChild(chatNewThread);
         chatThread.scrollTop = chatThread.scrollHeight;
 
