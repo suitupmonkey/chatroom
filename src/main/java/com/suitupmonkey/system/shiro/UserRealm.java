@@ -54,7 +54,7 @@ public class UserRealm extends AuthorizingRealm {
             e.printStackTrace();
         }
 
-        AuthenticationInfo authentication = new SimpleAuthenticationInfo(user,password,username);
+        SimpleAuthenticationInfo authentication = new SimpleAuthenticationInfo(user,password,username);
         return authentication;
     }
 }

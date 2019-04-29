@@ -5,9 +5,11 @@ import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import java.io.Serializable;
 
@@ -33,6 +35,7 @@ public class ShiroConfig implements Serializable {
     //不知道干啥的，官网上给的东西。
     @Bean
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor(){
+
         return new LifecycleBeanPostProcessor();
     }
 
@@ -44,6 +47,16 @@ public class ShiroConfig implements Serializable {
         methodInvokingFactoryBean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
         methodInvokingFactoryBean.setArguments(securityManager());
         return methodInvokingFactoryBean;
+    }
+
+
+    @Bean
+    @DependsOn({"lifecycleBeanPostProcessor"})
+    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
+        advisorAutoProxyCreator.setProxyTargetClass(true);
+        advisorAutoProxyCreator.setUsePrefix(true);
+        return advisorAutoProxyCreator;
     }
 
 

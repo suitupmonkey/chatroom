@@ -4,7 +4,7 @@ var socket,
     chatWindow = document.querySelector('.chat-window'),
     chatWindowMessage = document.querySelector('.chat-window-message'),
     chatThread = document.querySelector('.chat-thread');
-    timeThread = document.querySelector('.chat-thread name');
+    timeThread = document.querySelector('.chat-thread time');
 
 if (!window.WebSocket) {
     window.WebSocket = window.MozWebSocket;

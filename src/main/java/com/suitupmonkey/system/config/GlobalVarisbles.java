@@ -2,6 +2,7 @@ package com.suitupmonkey.system.config;
 
 import com.suitupmonkey.system.bean.User;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 
 import java.io.Serializable;
 
@@ -11,9 +12,10 @@ public class GlobalVarisbles implements Serializable {
 
     //获取当前用户
     public static User currentUser(){
-        User subject = (User) SecurityUtils.getSubject().getPrincipal();
-        String username = subject.getUsername();
-        return subject;
+        Subject subject = SecurityUtils.getSubject();
+        User user = (User) subject.getPrincipal();
+        String username = user.getUsername();
+        return user;
     }
 
     //获取当前用户ID

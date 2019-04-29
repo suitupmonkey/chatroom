@@ -3,6 +3,7 @@ package com.suitupmonkey.common.socket;
 import com.alibaba.fastjson.JSONObject;
 import com.suitupmonkey.common.bean.Msg;
 import com.suitupmonkey.common.utils.DateUtils;
+import com.suitupmonkey.common.utils.ShiroUtils;
 import com.suitupmonkey.system.config.GlobalVarisbles;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -118,7 +119,7 @@ public class InboundHandler extends ChannelInboundHandlerAdapter {
 
         Msg message = new Msg();
         message.setContent(msg);
-        // message.setSender(GlobalVarisbles.username());
+        //message.setSender(GlobalVarisbles.currentUser().getUsername());
         message.setDeliveryDate(new Date());
         String sendDate = message.getSendDate();
         String msgbody = JSONObject.toJSONString(message);
