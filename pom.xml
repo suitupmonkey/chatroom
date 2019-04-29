@@ -16,6 +16,7 @@
     </parent>
 
     <dependencies>
+
         <!--netty-->
         <dependency>
             <groupId>io.netty</groupId>
