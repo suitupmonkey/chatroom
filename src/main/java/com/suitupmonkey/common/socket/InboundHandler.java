@@ -2,6 +2,7 @@ package com.suitupmonkey.common.socket;
 
 import com.alibaba.fastjson.JSONObject;
 import com.suitupmonkey.common.bean.Msg;
+import com.suitupmonkey.system.config.GlobalVarisbles;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -121,9 +122,6 @@ public class InboundHandler extends ChannelInboundHandlerAdapter {
         String sendDate = message.getSendDate();
         String msgbody = JSONObject.toJSONString(message);
         ctx.write(new TextWebSocketFrame(msgbody));//处理
-
-
-        //ctx.write(new TextWebSocketFrame(msg));//处理
         ctx.flush();
     }
 

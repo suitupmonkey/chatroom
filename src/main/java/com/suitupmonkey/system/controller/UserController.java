@@ -30,7 +30,7 @@ public class UserController {
     @RequestMapping("/userExist")
     @ResponseBody
     String userExist(@RequestBody User user){
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword(),true);
         Subject subject = SecurityUtils.getSubject();
         try{
             subject.login(token);//login authentication

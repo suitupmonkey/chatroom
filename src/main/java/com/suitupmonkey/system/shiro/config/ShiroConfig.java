@@ -5,11 +5,9 @@ import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
-import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 
 import java.io.Serializable;
 
@@ -20,15 +18,15 @@ public class ShiroConfig implements Serializable {
 
     @Bean
     public Realm realm(){
-        Realm realm = new UserRealm();
+        UserRealm realm = new UserRealm();
         return realm;
     }
 
     @Bean
     public SecurityManager securityManager(){
-        SecurityManager securityManager = new DefaultSecurityManager();
+        DefaultSecurityManager securityManager = new DefaultSecurityManager();
         //Single realm app.  If you have multiple realms, use the 'realms' property instead.
-        ((DefaultSecurityManager) securityManager).setRealm(realm());//设置realm
+        securityManager.setRealm(realm());//设置realm
         return securityManager;
     }
 
@@ -50,14 +48,6 @@ public class ShiroConfig implements Serializable {
     }
 
 
-    @Bean
-    @DependsOn({"lifecycleBeanPostProcessor"})
-    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
-        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
-        advisorAutoProxyCreator.setProxyTargetClass(true);
-        advisorAutoProxyCreator.setUsePrefix(true);
-        return advisorAutoProxyCreator;
-    }
 
 
 
