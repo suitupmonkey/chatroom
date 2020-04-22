@@ -12,14 +12,14 @@ import java.io.Serializable;
 @Builder
 public class User implements Serializable {
 
-    //主键
+    /**主键*/
     private String id;
-    //用户名
+    /**用户名*/
     private String username;
-    //密码
+    /**密码*/
     private String password;
     /**头像地址*/
-    private long head;
+    private String head;
     @Tolerate
     public User(){}
 }
