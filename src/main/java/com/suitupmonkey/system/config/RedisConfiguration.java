@@ -1,5 +1,6 @@
 package com.suitupmonkey.system.config;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
@@ -16,14 +17,11 @@ import java.util.List;
  * @create: 2020-04-21 16:50
  **/
 @Component
+@Data
 @ConfigurationProperties(prefix = "spring.redis.cluster")
 public class RedisConfiguration {
 
     List<String> nodes;
-
-    public List<String> getNodes() {return nodes;}
-
-    public void setNodes(List<String> nodes) {this.nodes = nodes;}
 
     /**集群方式*/
     @Bean
@@ -38,7 +36,6 @@ public class RedisConfiguration {
      * shown in the following example*/
     @Bean
     public RedisTemplate<?, ?> redisTemplate(JedisConnectionFactory jedisConnectionFactory) {
-
         RedisTemplate<byte[], byte[]> template = new RedisTemplate<byte[], byte[]>();
         template.setConnectionFactory(jedisConnectionFactory);
         return template;
