@@ -1,16 +1,21 @@
 package com.suitupmonkey.system.bean;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
+
 import java.io.Serializable;
 
+@RedisHash("user")
 public class User implements Serializable {
 
-    //主键
+    /**主键*/
+    @Id
     private String id;
-    //用户名
+    /**用户名*/
     private String username;
-    //密码
+    /**密码*/
     private String password;
-    //头像地址
+    /**头像地址*/
     private String head;
 
     public String getId() {
