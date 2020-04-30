@@ -1,6 +1,5 @@
 package com.suitupmonkey.common.utils;
 
-import com.suitupmonkey.common.constant.ConstantData;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -176,34 +175,5 @@ public class ClassUtil implements Serializable {
         return isCollection;
     }
 
-
-
-
-    /**字符串是否为数字
-     * @description:
-     * @author: louweiwei
-     * @date: 2020/2/21
-     */
-    public static boolean isNumber(String string){
-        return string.matches(ConstantData.NUMERIC);
-    }
-
-    /***
-     * @description: 判断是否为手机号
-     * @author: louweiwei
-     * @date: 2020/4/7
-     */
-    public static boolean isPhone(String string){
-        return string.matches(ConstantData.PHONE);
-    }
-    /***
-     * @description: 判断是否为手机号
-     * @author: louweiwei
-     * @date: 2020/4/7
-     */
-    public static boolean isName(String string){
-        return string.matches(ConstantData.CHINESE_CHARACTER) ||
-                string.matches(ConstantData.CHINESE_CHARACTER);
-    }
 
 }

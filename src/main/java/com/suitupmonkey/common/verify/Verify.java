@@ -14,5 +14,6 @@ import java.lang.annotation.Target;
 @Target({ ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Verify {
-    public boolean nonNull() default false;
+    /**标识字段是否需要校验*/
+    boolean nonNull() default false;
 }
