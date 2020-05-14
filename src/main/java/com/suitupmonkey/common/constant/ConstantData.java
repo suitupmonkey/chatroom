@@ -20,4 +20,5 @@ public class ConstantData {
     public static final String ENGLISH_CHARACTER = "(([a-zA-Z][ ]{0,1}){0,20})";
     /**电话号码正则*/
     public static final String PHONE = "^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|145|147|149|173|175|176|177|178)+\\d{8})$";
+
 }
