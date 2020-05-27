@@ -13,10 +13,25 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Verify {
-    /**是否需要校验*/
+    /**
+     * 是否需要校验
+     * @return
+     */
     boolean mandatory() default false;
-    /**int属性的区间范围*/
-    int[] intScope() default {1,2};
-    /**int属性的区间范围*/
-    String[] StringScope() default {"1","2"};
+
+    /**
+     * int属性值的区间范围
+     * 当前不能在使用注解时，检验使用者字段声明是否正确；
+     * 如果字段类型声明为 整型数值 以外的其他类型，将跳过该校验。
+     * @return
+     */
+    int[] intScope() default {};
+
+    /**
+     * string属性值的区间范围；
+     * 当前不能在使用注解时，检验使用者字段声明是否正确；
+     * 如果字段类型声明为 string 以外的其他类型，将跳过该校验。
+     * @return
+     */
+    String[] stringScope() default {};
 }

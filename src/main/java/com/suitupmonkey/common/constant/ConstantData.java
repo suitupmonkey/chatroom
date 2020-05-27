@@ -1,5 +1,8 @@
 package com.suitupmonkey.common.constant;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @program: chatroom
  * @description: 常量
@@ -21,4 +24,12 @@ public class ConstantData {
     /**电话号码正则*/
     public static final String PHONE = "^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|145|147|149|173|175|176|177|178)+\\d{8})$";
 
+
+    public static final Map<String,Enum> SCOPE_WARNING_TIPS = initializeScopeWarningTips();
+
+    private static Map<String, Enum> initializeScopeWarningTips() {
+        Map<String,Enum> scopeWarningTips = new HashMap<>();
+
+        return null;
+    }
 }
