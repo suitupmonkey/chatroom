@@ -41,36 +41,6 @@
             <version>2.2.6.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-        <!--<dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.1</version>
-        </dependency>
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.mybatis/mybatis-spring &ndash;&gt;
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter &ndash;&gt;
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        &lt;!&ndash; https://mvnrepository.com/artifact/mysql/mysql-connector-java &ndash;&gt;
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.15</version>
-        </dependency>
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-jdbc &ndash;&gt;
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>5.1.6.RELEASE</version>
-        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -182,6 +152,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.5.3</version>
+        </dependency>
 
     </dependencies>
 
