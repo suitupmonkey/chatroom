@@ -1,10 +1,9 @@
 package com.suitupmonkey.system.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.suitupmonkey.system.bean.User;
 
-public interface UserService {
+public interface UserService extends IService<User> {
 
-    int userExist(User user);//if user exist
-
-    User findUser(String username);//find user with it's name
+    void test();
 }

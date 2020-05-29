@@ -1,6 +1,6 @@
 package com.suitupmonkey.common.utils;
 
-import com.baomidou.mybatisplus.toolkit.CollectionUtils;
+import cn.hutool.core.collection.CollectionUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class ClassUtil implements Serializable {
             //从null, string,集合判断是否为空.
             boolean nullValue = value == null;
             boolean stringIsEmpty = isString && StringUtils.isBlank(value.toString());
-            boolean collectionIsEmpty = isCollection && CollectionUtils.isEmpty((Collection<?>) value);
+            boolean collectionIsEmpty = isCollection && CollectionUtil.isEmpty((Collection<?>) value);
             if(nullValue || stringIsEmpty || collectionIsEmpty){
                 return true;
             }

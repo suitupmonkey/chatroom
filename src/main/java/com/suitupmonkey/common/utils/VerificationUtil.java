@@ -1,7 +1,6 @@
 package com.suitupmonkey.common.utils;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.baomidou.mybatisplus.toolkit.CollectionUtils;
 import com.suitupmonkey.common.annotation.Verify;
 import com.suitupmonkey.enums.WarningTips;
 import com.suitupmonkey.enums.WarningTipsWrapper;
@@ -98,7 +97,7 @@ public class VerificationUtil {
         //null直接返回
         if(nullValue) return WarningTipsWrapper.emptyWarning(fieldName);
         boolean stringIsEmpty = isString && StringUtils.isBlank(value.toString());
-        boolean collectionIsEmpty = isCollection && CollectionUtils.isEmpty((Collection<?>) value);
+        boolean collectionIsEmpty = isCollection && CollectionUtil.isEmpty((Collection<?>) value);
         //单独对字符串和集合判空，这里判断的不好，后面需要优化。
         if(stringIsEmpty || collectionIsEmpty){
             warningTips =  WarningTipsWrapper.emptyWarning(fieldName);
