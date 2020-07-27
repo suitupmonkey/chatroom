@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Override
-    public void test(User user) {
-
+    public Object test(User user) {
+        System.out.println(user);
+        return null;
     }
+
 }

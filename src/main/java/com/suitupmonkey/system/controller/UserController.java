@@ -1,5 +1,6 @@
 package com.suitupmonkey.system.controller;
 
+import com.suitupmonkey.enums.WarningTips;
 import com.suitupmonkey.system.bean.User;
 import com.suitupmonkey.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,10 @@ public class UserController {
     @RequestMapping("/userExist")
     @ResponseBody
     String userExist(@RequestBody User user){
-        loginService.test(user);
+        Object test = loginService.test(user);
+        if(test instanceof WarningTips){
+            return ((WarningTips) test).getMessage();
+        }
         return "0";
     }
 
