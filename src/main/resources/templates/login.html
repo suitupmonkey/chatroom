@@ -58,6 +58,7 @@
                         password: $('#password').val()
                     })
                         .then(function (response) {
+                            console.log(data);
                             if(response.data == "0"){
                                 window.location.href = "/chatroom";
                                 return false;
