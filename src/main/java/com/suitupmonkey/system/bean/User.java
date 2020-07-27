@@ -20,7 +20,7 @@ public class User implements Serializable {
     @Verify(mandatory = true)
     private String username;
     /**密码*/
-    private Integer password;
+    private String password;
     /**头像地址*/
     private String head;
     @Tolerate

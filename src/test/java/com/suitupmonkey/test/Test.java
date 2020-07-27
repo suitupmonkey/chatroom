@@ -11,8 +11,8 @@ import com.suitupmonkey.system.bean.User;
  */
 public class Test {
     public static void main(String[] args) throws IllegalAccessException {
-        User lancelot = User.builder().username("lancelot").build();
-        lancelot.setOperator(2);
+        User lancelot = User.builder().username("").build();
+        lancelot.setOperator(3);
         WarningTips warningTips = VerificationUtil.verify(lancelot);
         System.out.println(warningTips.getMessage());
     }

@@ -5,5 +5,5 @@ import com.suitupmonkey.system.bean.User;
 
 public interface UserService extends IService<User> {
 
-    void test();
+    void test(User user);
 }

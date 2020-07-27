@@ -1,3 +1,5 @@
+server:
+  port: 8088
 #print sql
 logging:
   level:

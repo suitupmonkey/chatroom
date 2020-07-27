@@ -26,7 +26,7 @@ public class UserController {
     @RequestMapping("/userExist")
     @ResponseBody
     String userExist(@RequestBody User user){
-        loginService.test();
+        loginService.test(user);
         return "0";
     }
 
