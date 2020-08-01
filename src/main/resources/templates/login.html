@@ -7,7 +7,7 @@
     <!-- development version, includes helpful console warnings -->
 <!--    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>-->
     <script src="../js/jquery-3.5.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../js/vuejs-2.5.16.js"></script>
 
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -58,7 +58,6 @@
                         password: $('#password').val()
                     })
                         .then(function (response) {
-                            console.log(data);
                             if(response.data == "0"){
                                 window.location.href = "/chatroom";
                                 return false;
