@@ -18,7 +18,11 @@ import io.netty.handler.stream.ChunkedWriteHandler;
  */
 public class SocketServer {
 
-    public void run(int port) throws Exception {
+    public static void main(String[] args) throws Exception {
+        run(8082);
+    }
+
+    public static void run(int port) throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -32,6 +36,7 @@ public class SocketServer {
                             channel.pipeline().addLast("aggregator",new HttpObjectAggregator(65536));
                             channel.pipeline().addLast("http-chunked",new ChunkedWriteHandler());
                             channel.pipeline().addLast(new InboundHandler());
+//                            channel.pipeline().addLast(new WebSocketServerProtocolHandler("/ws"));
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)          // (5)

@@ -6,18 +6,20 @@
   <title>login</title>
     <!-- development version, includes helpful console warnings -->
 <!--    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>-->
-    <script src="../js/jquery-3.5.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script src="/js/vuejs-2.5.16.js"></script>
+    <script src="/bootstrap/bootstrap.js"></script>
 
     <!-- axios -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
 
     <!-- bootstrap4 -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     <!-- 背景颜色 -->
     <link rel="stylesheet" type="text/css" href="/css/app/chatroom/loginBackground.css" />
     <link href="/css/app/chatroom/floating-labels.css" rel="stylesheet">
+    <link href="/bootstrap/bootstrap.css" rel="stylesheet">
 
 </head>
 
@@ -53,21 +55,37 @@
             data:{},
             methods:{
                 login: function(){
-                    axios.post('/userExist', {
-                        username: $('#username').val(),
-                        password: $('#password').val()
-                    })
-                        .then(function (response) {
-                            console.log(data);
+                    let user = {}
+                    user.username = $('#username').val();
+                    user.password = $('#password').val();
+                    $.ajax({
+                        url:'/userExist',
+                        async:false,
+                        data:JSON.stringify(user),
+                        success: function(response){
                             if(response.data == "0"){
                                 window.location.href = "/chatroom";
                                 return false;
                             }
                             window.location.href = "/";
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
+                        }
+                    })
+
+                //     axios.post('/userExist', {
+                //         username: $('#username').val(),
+                //         password: $('#password').val()
+                //     })
+                //         .then(function (response) {
+                //             console.log(data);
+                //             if(response.data == "0"){
+                //                 window.location.href = "/chatroom";
+                //                 return false;
+                //             }
+                //             window.location.href = "/";
+                //         })
+                //         .catch(function (error) {
+                //             console.log(error);
+                //         });
                 }
             }
 

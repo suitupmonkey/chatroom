@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+//@Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 
     @Override
@@ -14,6 +14,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
         InterceptorRegistration addInterceptor = registry.addInterceptor(new AccessInterceptor());
         addInterceptor.excludePathPatterns("/css/**");//不拦截静态资源
         addInterceptor.excludePathPatterns("/js/**");//不拦截静态资源
+        addInterceptor.excludePathPatterns("/bootstrap/**");//不拦截静态资源
         addInterceptor.excludePathPatterns("/");
         addInterceptor.excludePathPatterns("/login");
         //addInterceptor.excludePathPatterns("/error");

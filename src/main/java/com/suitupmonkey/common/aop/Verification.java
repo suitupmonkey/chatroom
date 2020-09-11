@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @create: 2020-04-29 14:04
  **/
 @Slf4j
-@Aspect
-@Component
-@Configuration
+//@Aspect
+//@Component
+//@Configuration
 public class Verification {
 
     @Pointcut("execution(* com.suitupmonkey.system.service.impl.UserServiceImpl.*(..))")

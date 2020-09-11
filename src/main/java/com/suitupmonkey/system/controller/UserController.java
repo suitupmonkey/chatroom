@@ -27,10 +27,6 @@ public class UserController {
     @RequestMapping("/userExist")
     @ResponseBody
     String userExist(@RequestBody User user){
-        Object test = loginService.test(user);
-        if(test instanceof WarningTips){
-            return ((WarningTips) test).getMessage();
-        }
         return "0";
     }
 
