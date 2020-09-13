@@ -1,6 +1,7 @@
 package com.suitupmonkey.common.bean;
 
-import com.suitupmonkey.common.utils.DateUtils;
+
+
 
 import java.io.Serializable;
 import java.util.Date;
@@ -56,7 +57,6 @@ public class Msg implements Serializable {
     }
 
     public void setDeliveryDate(Date deliveryDate) {
-        sendDate = DateUtils.format(deliveryDate,"HH:mm");
         this.setSendDate(sendDate);
         this.deliveryDate = deliveryDate;
     }
