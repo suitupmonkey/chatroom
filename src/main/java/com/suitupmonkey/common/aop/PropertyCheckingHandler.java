@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @description：校验
  */
 @Component
-public class CheckPropertiesHandler {
+public class PropertyCheckingHandler {
 
     public WarningTips verify(User user) throws IllegalAccessException {
         WarningTips warningTips = VerificationUtil.verify(user);
